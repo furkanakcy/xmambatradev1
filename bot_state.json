@@ -1,0 +1,38 @@
+{
+    "SOLUSDT_AdaptiveTrendStrategy_1m": {
+        "symbol": "SOL/USDT",
+        "strategy": "AdaptiveTrendStrategy",
+        "settings": {
+            "leverage": 10,
+            "balance": 10.0,
+            "direction": "Her \u0130kisi de",
+            "timeframe": "1m",
+            "take_profit": 1.0,
+            "stop_loss": 0.3
+        }
+    },
+    "BTCUSDT_AdaptiveTrendStrategy_1m": {
+        "symbol": "BTC/USDT",
+        "strategy": "AdaptiveTrendStrategy",
+        "settings": {
+            "leverage": 10,
+            "balance": 10.0,
+            "direction": "Her \u0130kisi de",
+            "timeframe": "1m",
+            "take_profit": 1.0,
+            "stop_loss": 0.3
+        }
+    },
+    "ETHUSDT_AdaptiveTrendStrategy_1m": {
+        "symbol": "ETH/USDT",
+        "strategy": "AdaptiveTrendStrategy",
+        "settings": {
+            "leverage": 20,
+            "balance": 10.0,
+            "direction": "Her \u0130kisi de",
+            "timeframe": "1m",
+            "take_profit": 5.0,
+            "stop_loss": 0.3
+        }
+    }
+}
