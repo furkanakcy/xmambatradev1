@@ -1,0 +1,25 @@
+# Resmi Python 3.11 imajını temel alarak başlıyoruz.
+# Bu imaj, uygulamamızı çalıştırmak için gerekli her şeyi içerir.
+FROM python:3.10-slim
+
+# Uygulama kodlarımızın çalışacağı dizini belirliyoruz.
+WORKDIR /app
+
+# requirements.txt dosyasını container içine kopyalıyoruz.
+# Sadece bu dosyayı kopyalamak, bağımlılıklar değişmediği sürece
+# her seferinde yeniden yüklenmesini engeller ve "build" sürecini hızlandırır.
+COPY requirements.txt ./
+
+# requirements.txt içindeki tüm Python kütüphanelerini yüklüyoruz.
+# --no-cache-dir, daha küçük bir imaj boyutu için önbellek dosyalarını temizler.
+# Bu, dağıtım süresini ve maliyetini düşürür.
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Geri kalan tüm uygulama dosyalarını (Streamlit uygulamanızın kendisi vb.) kopyalıyoruz.
+COPY . .
+
+# Uygulamayı başlatmak için kullanılacak komutu tanımlıyoruz.
+# "fly.toml" dosyanızda başka bir komut yoksa, Fly.io bu komutu kullanacaktır.
+# Streamlit uygulamanızın dosya adı muhtemelen "app.py"dir. Eğer farklıysa, "app.py" yerine
+# kendi dosya adınızı yazın (örneğin: "main.py").
+CMD ["streamlit", "run", "app.py"]
